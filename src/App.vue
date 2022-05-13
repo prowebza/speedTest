@@ -3,7 +3,7 @@
   <br>
 
   <br>
-  <input @click.prevent="startGame" :disabled="isPlaying" value="Start Game" :type="isPlaying ? 'button' : 'text'" class="btn btn-outline-dark">
+  <input @click.prevent="startGame"  value="Start Game" type='button' class="btn btn-outline-dark" v-if="!isPlaying">
   <Block @end="resault" :delay="isPlaying ? delay : ''" v-if="isPlaying"/>
   <Resault v-if="!isPlaying && gameEnd">
     <template v-slot:header>
@@ -38,6 +38,7 @@ export default {
       console.log('Called');
       if (!this.isPlaying){
         this.resetData();
+        this.isPlaying = true;
         this.delay = 1000 + Math.random() * 6000;
       }
     },
@@ -45,7 +46,6 @@ export default {
       this.isPlaying = false;
       this.score = reactTime;
       this.gameEnd = true
-
       this.leaguee();
     },
     leaguee(){
@@ -53,8 +53,6 @@ export default {
         this.League = 'Flash'
       }else if (this.score <= 600){
         this.League = 'fat flash'
-      }else if(!(this.score <= 0)){
-
       }
       else{
         this.League = 'snail'
@@ -62,7 +60,7 @@ export default {
     },
     resetData(){
       this.gameEnd = false;
-      this.isPlaying = true;
+      this.isPlaying = false;
       this.delay = null;
       this.score = 0;
       this.League = '';
