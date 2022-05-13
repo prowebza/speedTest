@@ -1,4 +1,14 @@
-# popup-project
+## simple speed test using vue.js 
+## green circles well spwan randomly between 1 too 6 seconds
+## the circles can spwan anywhere on the screen
+## that's it have fun
+## i didn't put much effort on this project
+## https://linker.fun/
+
+
+
+
+# speedTest
 
 ## Project setup
 ```
